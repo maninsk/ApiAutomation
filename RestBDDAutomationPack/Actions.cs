@@ -3,11 +3,11 @@ using RestBDDAutomationPack.Helper;
 
 namespace RestBDDAutomationPack
 {
-    public class Class1
+    public class Actions
     {
         private RestBDDAutomationPack.Helper.Helper helper;
 
-        public Class1()
+        public Actions()
         {
             helper = new RestBDDAutomationPack.Helper.Helper();
         }
