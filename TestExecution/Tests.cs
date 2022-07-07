@@ -35,9 +35,9 @@ namespace TestExecution
             var api = new Actions();
             var res = api.CreatePets(payload);
 
-            Assert.AreEqual(1111, res.status, "Status is not as expected");
+            Assert.AreEqual("OK", res.status, "Status is not as expected");
             Assert.AreEqual(1111, res.id, "Id is not as expected");
-            Assert.AreEqual(1111, res.name, "Name is not as expected");
+            Assert.AreEqual("name", res.name, "Name is not as expected");
         }
 
         [Test]
@@ -49,9 +49,9 @@ namespace TestExecution
             var api = new Actions();
             var res = api.CreatePets(payload);
 
-            Assert.AreEqual(1111, res.status, "Status is not as expected");
+            Assert.AreEqual("OK", res.status, "Status is not as expected");
             Assert.AreEqual(1111, res.id, "Id is not as expected");
-            Assert.AreEqual(1111, res.name, "Name is not as expected");
+            Assert.AreEqual("name", res.name, "Name is not as expected");
         }
 
         [Test]
@@ -66,8 +66,5 @@ namespace TestExecution
             Assert.AreEqual(200, res.StatusCode, "Status is not as expected");
             
         }
-
-
-
     }
 }
