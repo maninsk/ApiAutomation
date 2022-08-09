@@ -1,11 +1,14 @@
 ﻿using RestSharp;
 using RestBDDAutomationPack.Helper;
+using RestBDDAutomationPack.Models;
 
 namespace RestBDDAutomationPack
 {
     public class Actions
     {
         private RestBDDAutomationPack.Helper.Helper helper;
+        private string  baseurl = "https://relay-candidate.proxy.beeceptor.com/";
+        private string getEndPoint = "report/v1/payouts";
 
         public Actions()
         {
@@ -13,43 +16,43 @@ namespace RestBDDAutomationPack
         }
 
                    
-            public Pet GetPets()
+            public Payouts GetPayouts()
             {
-                var client = helper.SetUrl("https://petstore.swagger.io/v2/pet/111");
+                var client = helper.SetUrl(baseurl+ getEndPoint);
                 var request = helper.CreateGetRequest();
                 request.RequestFormat = DataFormat.Json;
                 var response = helper.GetResponse(client, request);
-                var pet = HandleContent.GetContent<Pet>(response);
+                var payouts = HandleContent.GetContent<Payouts>(response);
 
 
-                return pet;
+                return payouts;
             }
 
-            public CreatePetRes CreatePets(string payload)
-            {
-                var client = helper.SetUrl("https://petstore.swagger.io/v2/pet");
-                var request = helper.CreatePostRequest(payload);
-                var response = helper.GetResponse(client, request);
-                var createpet = HandleContent.GetContent<CreatePetRes>(response);
-
-
-                return createpet;
-            }
-
-        public CreatePetRes CreatePutRequest(string payload)
+        public Payouts CreateRequest(string payload)
         {
-            var client = helper.SetUrl("https://petstore.swagger.io/v2/pet");
+            var client = helper.SetUrl("https://relay-candidate.proxy.beeceptor.com/");
             var request = helper.CreatePostRequest(payload);
             var response = helper.GetResponse(client, request);
-            var createpet = HandleContent.GetContent<CreatePetRes>(response);
+            var createPayout = HandleContent.GetContent<Payouts>(response);
 
 
-            return createpet;
+            return createPayout;
+        }
+
+        public Payouts CreatePutRequest(string payload)
+        {
+            var client = helper.SetUrl("");
+            var request = helper.CreatePostRequest(payload);
+            var response = helper.GetResponse(client, request);
+            var createPayout = HandleContent.GetContent<Payouts>(response);
+
+
+            return createPayout;
         }
 
         public RestResponse DeleteRequest(string payload)
         {
-            var client = helper.SetUrl("https://petstore.swagger.io/v2/pet");
+            var client = helper.SetUrl("");
             var request = helper.CreatePostRequest(payload);
             var response = helper.GetResponse(client, request);
             
